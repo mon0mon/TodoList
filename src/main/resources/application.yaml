@@ -1,0 +1,24 @@
+spring:
+  sql:
+    init:
+      mode: never
+  datasource:
+    url: jdbc:mysql://localhost:33061/TODOLIST_DB
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    enabled: true
+    user: root
+    password: root
+    url: jdbc:mysql://localhost:33061/TODOLIST_DB
+  jpa:
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        format_sql: true
+
