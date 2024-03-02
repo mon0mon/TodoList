@@ -26,6 +26,9 @@ public class Alarm {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "note", length = 255)
+    private String note;
+
     @OneToOne
     private Item item;
 }

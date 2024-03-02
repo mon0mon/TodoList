@@ -8,16 +8,15 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -38,7 +37,8 @@ public class List extends BaseTimeEntity {
     private Long id;
 
     @Column(name = "note", nullable = false, length = 255)
-    private String note;
+    @Default
+    private String note = "";
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST,
             orphanRemoval = true, optional = false)

@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,18 +30,23 @@ public class Member extends BaseTimeEntity {
     private Long id;
 
     @Column(name = "email", nullable = false, length = 255)
-    private String email;
+    @Default
+    private String email = "";
 
     @Column(name = "mobile", length = 15)
-    private String mobile;
+    @Default
+    private String mobile = "";
 
     @Column(name = "name", length = 20)
-    private String name;
+    @Default
+    private String name = "";
 
     @Column(name = "profile_pic", length = 500)
-    private String profilePic;
+    @Default
+    private String profilePic = "";
 
     @Column(name = "oauth_active", nullable = false)
     @Convert(converter = OAuthActiveConverter.class)
-    private OAuthActive oAuthActive;
+    @Default
+    private OAuthActive oAuthActive = OAuthActive.NONE;
 }

@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -51,10 +52,12 @@ public class Item extends BaseTimeEntity {
     private List list;
 
     @Column(name = "content", nullable = false, length = 1200)
-    private String content;
+    @Default
+    private String content = "";
 
     @Column(name = "active", nullable = false)
-    private Boolean active;
+    @Default
+    private Boolean active = true;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @Column(name = "child")

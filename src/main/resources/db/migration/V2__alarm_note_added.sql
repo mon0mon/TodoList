@@ -1,0 +1,2 @@
+ALTER TABLE alarm
+    ADD note VARCHAR(255) NULL;
